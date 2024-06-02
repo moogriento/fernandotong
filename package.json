@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+    "dev": "parcel index.html",
+    "prebuild": "rm -rf dist",
+    "build": "parcel build index.html --no-source-maps"
   },
   "devDependencies": {
-    "vite": "^5.2.12"
+    "parcel": "^2.12.0"
   }
 }
