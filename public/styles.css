@@ -1,0 +1,162 @@
+:root {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+  color-scheme: light dark;
+  background-color: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-size: 16px;
+
+  --color-primary: #388E3C;
+  --color-copy: #213547;
+  --color-links: #4F6F52;
+}
+
+html, body {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+body {
+  margin: 1rem 1rem;
+  color: var(--color-copy); 
+}
+
+main {
+  margin: 0 auto;
+  max-width: 900px;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "hero"
+    "avatar"
+    "content";
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+h1, .salute {
+  font-family: "Patua One", serif;
+  font-size: 3rem;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--color-primary);
+}
+
+.salute {
+  font-size: 1.2rem;
+  display: block;
+  color: var(--color-copy);
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.cursor {
+  animation: 1s blink step-end infinite;
+}
+
+p:first-of-type {
+  font-size: 1.2rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+a {
+  color: var(--color-links);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+.hero {
+  grid-area: hero;
+}
+
+.content {
+  grid-area: content;
+}
+
+.avatar {
+  grid-area: avatar;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-wrapper {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid #242424; */
+  width: 120px;
+  height: 120px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0px 0px 25px rgba(0,0,0,0.5);
+}
+
+@media only screen and (min-width: 800px) {
+  body {
+    margin: 0;
+  }
+
+  main {
+    padding: 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "hero avatar"
+      "content avatar";
+  }
+
+  h1 {
+    font-size: 3.8rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  .avatar-wrapper {
+    grid-row: 2;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary: #388E3C;
+    --color-copy: #fff;
+    --color-links: #90D26D;
+
+    background-color: #242424;
+  }
+
+  .avatar-wrapper {
+    box-shadow: 0px 0px 25px rgba(255,255,255,0.5);
+  }
+}
+
+@keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: var(--color-copy);
+  }
+}
