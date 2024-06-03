@@ -112,13 +112,13 @@ a:hover {
   box-shadow: 0px 0px 25px rgba(0,0,0,0.5);
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 768px) {
   body {
     margin: 0;
   }
 
   main {
-    padding: 1rem;
+    padding: 2rem;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 
       "hero avatar"
