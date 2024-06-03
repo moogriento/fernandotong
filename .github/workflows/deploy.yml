@@ -31,11 +31,14 @@ jobs:
       - run: npm run build
       - run: ls
       - run: cd dist && ls
+      - name: Tar this
+        shell: sh
+        run: tar -czf dist.tar dist
         # Store the dist folder
       - uses: actions/upload-artifact@v4
         with:
-          name: app-build
-          path: dist
+          name: github-pages
+          path: dist.tar
 
   # Deploy job
   deploy:
@@ -59,10 +62,8 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: app-build
+          name: github-pages
       - run: ls
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: app-build
