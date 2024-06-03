@@ -29,6 +29,8 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npm run build
+      - run: ls
+      - run: cd dist && ls
         # Store the dist folder
       - uses: actions/upload-artifact@v4
         with:
@@ -58,6 +60,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: app-build
+      - run: ls
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
